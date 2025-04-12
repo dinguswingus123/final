@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Personal Website</title>
+  <!-- Importing Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Global Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation Bar */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: linear-gradient(to right, #004e92, #000428);
+      padding: 15px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 30px;
+    }
+    header nav ul li a {
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+    header nav ul li a:hover {
+      color: #e0e0e0;
+    }
+
+    /* Hero Section (Home) */
+    #home {
+      background: url('https://source.unsplash.com/1600x900/?landscape') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      color: #fff;
+      position: relative;
+    }
+    #home::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+    #home h1, #home p {
+      position: relative;
+      z-index: 1;
+    }
+    #home h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+    #home p {
+      font-size: 1.2em;
+      max-width: 700px;
+    }
+
+    /* Section Base Style */
+    .section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: 120px auto 60px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.8s forwards;
+    }
+    /* Each section will animate slightly after the previous one */
+    .section:nth-of-type(2) { animation-delay: 0.2s; }
+    .section:nth-of-type(3) { animation-delay: 0.4s; }
+    .section:nth-of-type(4) { animation-delay: 0.6s; }
+    .section:nth-of-type(5) { animation-delay: 0.8s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #004e92;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .section h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 60px;
+      background: #000428;
+      border-radius: 2px;
+    }
+    .section p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    /* Portfolio Items */
+    .portfolio-item {
+      margin: 30px 0;
+      border-left: 4px solid #004e92;
+      padding-left: 15px;
+    }
+    .portfolio-item h3 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #000428;
+    }
+
+    /* Contact Form */
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #contact input,
+    #contact textarea {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+    #contact input:focus,
+    #contact textarea:focus {
+      border-color: #004e92;
+    }
+    #contact button {
+      padding: 12px;
+      font-size: 1em;
+      border: none;
+      background: #000428;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #contact button:hover {
+      background: #004e92;
+    }
+
+    /* Footer */
+    footer {
+      background: #000428;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header nav ul {
+        gap: 15px;
+      }
+      #home h1 {
+        font-size: 2.5em;
+      }
+      .section {
+        margin: 100px 20px 40px 20px;
+        padding: 60px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <h1>Welcome to My World</h1>
+    <p>Explore my portfolio, discover my passions, and get to know my creative journey.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>I'm [Your Name], a dedicated web developer and creative thinker with a passion for clean design and innovative ideas. My journey into coding started with curiosity and quickly evolved into a love for building engaging online experiences. When I'm not working on websites, I enjoy exploring art, literature, and technology.</p>
+    <p>This website is a reflection of my professional pursuits and personal interests, designed to give you a glimpse into my world.</p>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section">
+    <h2>Portfolio</h2>
+    <div class="portfolio-item">
+      <h3>Project 1: Modern Web Design</h3>
+      <p>A fully responsive website built from scratch using HTML and CSS. The design focuses on user experience and clean aesthetics.</p>
+    </div>
+    <div class="portfolio-item">
+      <h3>Project 2: Interactive Art Installation</h3>
+      <p>This project explores the intersection of creativity and technology, showcasing interactive elements that respond to user input.</p>
+    </div>
+    <div class="portfolio-item">
+      <h3>Project 3: Crypto Dashboard</h3>
+      <p>An intuitive dashboard designed to visualize and monitor real-time cryptocurrency data, bringing clarity to market trends.</p>
+    </div>
+  </section>
+
+  <!-- Hobbies Section -->
+  <section id="hobbies" class="section">
+    <h2>Hobbies & Interests</h2>
+    <p>Apart from coding, I embrace a variety of creative pursuits. I regularly hit the gym to stay active, write poetry (especially in Urdu) to express my emotions, and delve into the dynamic world of cryptocurrency. These hobbies not only enrich my personal life but also fuel my professional creativity.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <p>If you'd like to discuss a project, collaboration, or just say hello, please feel free to reach out via the form below or through email.</p>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="margin-top:20px;">Or email me directly at <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+  </footer>
+</body>
+</html>
